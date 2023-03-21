@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button, Pressable } from "react-native";
 import backServerAddress from "../config";
 import * as SecureStore from "expo-secure-store";
 import * as Location from "expo-location";
@@ -136,7 +136,10 @@ export default function TreksUser({ route, navigation }) {
 
           <Text style={[styles.stepTitle, {marginBottom: 10}]}> Votre progression</Text>
           {parcoursSteps.map((step) => (
-            <Text> {step.stepName}</Text>
+            <View key={step.stepName} style={{flexDirection: "row"}}>
+            <Text>{step.stepName}</Text>
+            <Pressable><Text>Valider</Text></Pressable>
+            </View>
           ))}
         </View>
       </View>
